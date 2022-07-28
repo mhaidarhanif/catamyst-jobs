@@ -10,8 +10,8 @@
 
 Home:
 
-![Home](./assets/home.png)
+![Home](./public/assets/home.png)
 
 Job Page:
 
-![Job Page](./assets/jobs-jobid.png)
+![Job Page](./public/assets/jobs-jobid.png)
