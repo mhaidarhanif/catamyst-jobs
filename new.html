@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post New Job</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="mb-5">
+      <h1 class="text-3xl font-bold">Post New Job</h1>
+    </header>
+
+    <form id="job-form" action="" class="p-2 max-w-xl flex flex-col gap-2">
+      <fieldset class="flex flex-col">
+        <label for="company-name">Company Name</label>
+        <input
+          id="job-form-company-name"
+          name="company-name"
+          type="text"
+          placeholder="PT ABC"
+          class="border p-2"
+          required
+        />
+      </fieldset>
+
+      <fieldset class="flex flex-col">
+        <label for="job-title">Job Title</label>
+        <input
+          id="job-form-job-title"
+          name="job-title"
+          type="text"
+          placeholder="Web Developer"
+          class="border p-2"
+          required
+        />
+      </fieldset>
+
+      <input
+        type="submit"
+        value="Post Job"
+        class="bg-teal-500 text-white rounded-md p-2"
+      />
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>
