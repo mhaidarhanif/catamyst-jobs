@@ -24,13 +24,13 @@ export type JobFormData = {
   companyName: string;
   companyLogoUrl?: string;
   jobTitle: string;
-  jobDescription: string;
   locationName: string;
-  salaryMin: number;
-  salaryMax: number;
+  applyUrl: string;
   salaryCurrency: "IDR" | "USD" | string;
   salaryCategory: "hourly" | "monthly" | "yearly" | string;
-  applyUrl: string;
+  salaryMin: number;
+  salaryMax: number;
+  jobDescription: string;
 };
 
 export async function getJobs() {

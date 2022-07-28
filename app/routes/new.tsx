@@ -13,12 +13,13 @@ export async function action({ request }: ActionArgs) {
     locationName: formData.get("locationName") as string,
     salaryMin: Number(formData.get("salaryMin")),
     salaryMax: Number(formData.get("salaryMax")),
-    salaryCurrency: formData.get("companyLogoUrl") as string,
+    salaryCurrency: formData.get("salaryCurrency") as string,
     salaryCategory: formData.get("salaryCategory") as string,
-    applyUrl: formData.get("companyLogoUrl") as string,
+    applyUrl: formData.get("applyUrl") as string,
   };
 
   console.info({ jobFormData });
+  // return null;
 
   const job = await createJob(jobFormData);
 
@@ -32,29 +33,90 @@ export async function action({ request }: ActionArgs) {
 
 export default function NewJobPost() {
   return (
-    <div>
-      <header className="mb-5">
-        <h1 className="text-3xl font-bold">Post New Job</h1>
-      </header>
+    <div className="flex justify-center">
+      <div>
+        <header className="mb-5">
+          <h1 className="text-3xl font-bold">Post New Job</h1>
+        </header>
 
-      <form className="form-new-job" method="post" action="/new">
-        <fieldset>
-          <label htmlFor="companyName">Company Name</label>
-          <input name="companyName" type="text" placeholder="PT ABC" required />
-        </fieldset>
+        <form className="form-new-job" method="post" action="/new">
+          <fieldset>
+            <label htmlFor="companyName">Company Name</label>
+            <input
+              name="companyName"
+              type="text"
+              placeholder="PT ABC"
+              required
+            />
+          </fieldset>
 
-        <fieldset>
-          <label htmlFor="jobTitle">Job Title</label>
-          <input
-            name="jobTitle"
-            type="text"
-            placeholder="Web Developer"
-            required
-          />
-        </fieldset>
+          <fieldset>
+            <label htmlFor="companyLogoUrl">Company Logo URL</label>
+            <input
+              name="companyLogoUrl"
+              type="text"
+              placeholder="https://logo.clearbit.com/company.com"
+            />
+          </fieldset>
 
-        <input className="button" type="submit" value="Post Job" />
-      </form>
+          <fieldset>
+            <label htmlFor="jobTitle">Job Title</label>
+            <input
+              name="jobTitle"
+              type="text"
+              placeholder="Web Developer"
+              required
+            />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="locationName">Location Name</label>
+            <input
+              name="locationName"
+              type="text"
+              placeholder="Worldwide"
+              required
+            />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="applyUrl">Apply URL</label>
+            <input
+              name="applyUrl"
+              type="text"
+              placeholder="https://example.com"
+            />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="salaryCurrency">Salary Currency</label>
+            <input name="salaryCurrency" type="text" />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="salaryCategory">Salary Category</label>
+            <input name="salaryCategory" type="text" />
+          </fieldset>
+
+          <div className="flex">
+            <fieldset>
+              <label htmlFor="salaryMin">Salary Minimum</label>
+              <input name="salaryMin" type="number" />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="salaryMax">Salary Maximum</label>
+              <input name="salaryMax" type="number" />
+            </fieldset>
+          </div>
+
+          <fieldset>
+            <label htmlFor="jobDescription">Job Description</label>
+            <textarea name="jobDescription" cols={30} rows={10}></textarea>
+          </fieldset>
+
+          <input className="button" type="submit" value="Post Job" />
+        </form>
+      </div>
     </div>
   );
 }
