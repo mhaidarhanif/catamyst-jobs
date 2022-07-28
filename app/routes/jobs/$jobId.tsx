@@ -2,7 +2,7 @@ import { Link, useParams } from "@remix-run/react";
 
 import { DateFormatted } from "~/components/date-formatted";
 import { JobSalaryRange } from "~/components/job-salary-range";
-import { getJob } from "~/data/jobs";
+import { getJob } from "~/data/job-posts";
 import { parseHtml } from "~/libs/html-react-parser";
 
 export default function JobId() {

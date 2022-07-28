@@ -1,5 +1,6 @@
 export type JobPost = {
-  jobId: string;
+  _id?: string;
+  jobId?: string;
   companyName: string;
   companyLogoUrl: string;
   jobTitle: string;
@@ -9,12 +10,12 @@ export type JobPost = {
   salaryMin: number;
   salaryMax: number;
   salaryCategory: string;
+  applyUrl: string;
   createdAt: Date;
   updatedAt: Date;
-  applyUrl: string;
 };
 
-export const dataJobs: JobPost[] = [
+export const dataJobPosts: JobPost[] = [
   {
     jobId: "7ed4a0cc-978e-44df-a573-56fbd1f6d07d",
     companyName: "Company Name",
@@ -25,10 +26,10 @@ export const dataJobs: JobPost[] = [
     salaryMin: 10_000_000,
     salaryMax: 20_000_000,
     salaryCategory: "monthly",
-    createdAt: new Date("20 January 2022"),
-    updatedAt: new Date("28 January 2022"),
     jobDescription: "<p>Paragraph 1</p><p>Paragraph 2</p>",
     applyUrl: "https://example.com",
+    createdAt: new Date("20 January 2022"),
+    updatedAt: new Date("28 January 2022"),
   },
   {
     jobId: "f1294206-4ea9-472b-bfcd-acd2fe5dbeae",
@@ -63,9 +64,9 @@ export const dataJobs: JobPost[] = [
 ];
 
 export function getJobs() {
-  return dataJobs;
+  return dataJobPosts;
 }
 
 export function getJob(jobId: string) {
-  return dataJobs.find((job) => job.jobId === jobId);
+  return dataJobPosts.find((job) => job.jobId === jobId);
 }

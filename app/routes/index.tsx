@@ -2,8 +2,8 @@ import { Link } from "@remix-run/react";
 
 import { DateFormatted } from "~/components/date-formatted";
 import { JobSalaryRange } from "~/components/job-salary-range";
-import { getJobs } from "~/data/jobs";
-import type { JobPost } from "~/data/jobs";
+import { getJobs } from "~/data/job-posts";
+import type { JobPost } from "~/data/job-posts";
 
 export default function Index() {
   const jobs = getJobs();

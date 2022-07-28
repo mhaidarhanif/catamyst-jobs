@@ -14,7 +14,7 @@ export type JobPost = {
   applyUrl: string;
 };
 
-export const dataJobs: JobPost[] = [
+export const dataJobPosts: JobPost[] = [
   {
     jobId: "7ed4a0cc-978e-44df-a573-56fbd1f6d07d",
     companyName: "Company Name",
@@ -63,9 +63,9 @@ export const dataJobs: JobPost[] = [
 ];
 
 export function getJobs() {
-  return dataJobs;
+  return dataJobPosts;
 }
 
 export function getJob(jobId: string) {
-  return dataJobs.find((job) => job.jobId === jobId);
+  return dataJobPosts.find((job) => job.jobId === jobId);
 }

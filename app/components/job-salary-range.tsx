@@ -1,4 +1,4 @@
-import type { JobPost } from "../data/jobs";
+import type { JobPost } from "~/data/job-posts";
 
 export function JobSalaryRange({ job }: { job: JobPost }) {
   const salaryMinFormatted = new Intl.NumberFormat("en").format(job.salaryMin);
