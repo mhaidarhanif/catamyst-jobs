@@ -37,38 +37,23 @@ export default function NewJobPost() {
         <h1 className="text-3xl font-bold">Post New Job</h1>
       </header>
 
-      <form
-        method="post"
-        action="/new"
-        className="p-2 max-w-xl flex flex-col gap-2"
-      >
-        <fieldset className="flex flex-col">
+      <form className="form-new-job" method="post" action="/new">
+        <fieldset>
           <label htmlFor="companyName">Company Name</label>
-          <input
-            name="companyName"
-            type="text"
-            placeholder="PT ABC"
-            className="border p-2"
-            required
-          />
+          <input name="companyName" type="text" placeholder="PT ABC" required />
         </fieldset>
 
-        <fieldset className="flex flex-col">
+        <fieldset>
           <label htmlFor="jobTitle">Job Title</label>
           <input
             name="jobTitle"
             type="text"
             placeholder="Web Developer"
-            className="border p-2"
             required
           />
         </fieldset>
 
-        <input
-          type="submit"
-          value="Post Job"
-          className="bg-teal-500 text-white rounded-md p-2"
-        />
+        <input className="button" type="submit" value="Post Job" />
       </form>
     </div>
   );
@@ -88,10 +73,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
       </header>
 
       <main>
-        <button
-          onClick={handleReload}
-          className="bg-teal-500 text-white rounded-md p-2"
-        >
+        <button onClick={handleReload} className="button">
           Try Again
         </button>
       </main>
@@ -110,7 +92,7 @@ export function CatchBoundary() {
       </header>
 
       <main>
-        <button>Try Again</button>
+        <button className="button">Try Again</button>
       </main>
 
       <footer>
