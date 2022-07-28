@@ -1,12 +1,18 @@
-import { Link } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 
 import { DateFormatted } from "~/components/date-formatted";
 import { JobSalaryRange } from "~/components/job-salary-range";
-import { getJobs } from "~/data/job-posts";
-import type { JobPost } from "~/data/job-posts";
+import { getJobs } from "~/data/jobs";
+import type { Job } from "~/data/jobs";
+
+export async function loader() {
+  const jobs = await getJobs();
+  return json(jobs);
+}
 
 export default function Index() {
-  const jobs = getJobs();
+  const jobs = useLoaderData();
 
   return (
     <div>
@@ -15,10 +21,10 @@ export default function Index() {
       </header>
 
       <main className="p-2 flex flex-col gap-2">
-        {jobs.map((job: JobPost) => {
+        {jobs.map((job: Job) => {
           return (
             <article
-              key={job.jobId}
+              key={job._id}
               className="job-card p-2 border-solid border-2 border-gray-300 rounded-md flex justify-between"
             >
               <section className="job-card-section flex gap-2">
@@ -39,7 +45,7 @@ export default function Index() {
               <section className="flex flex-col">
                 <Link
                   className="bg-teal-500 text-white rounded-md p-2"
-                  to={`/jobs/${job.jobId}`}
+                  to={`/jobs/${job._id}`}
                 >
                   Detail
                 </Link>

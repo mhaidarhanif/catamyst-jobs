@@ -1,5 +1,6 @@
-import { dateFormat } from "../libs/date-fns";
+import { dateFormat } from "~/libs/date-fns";
 
 export function DateFormatted({ date }: { date: Date }) {
-  return <p>Posted {dateFormat(date, "d LLLL yyyy")}</p>;
+  const dateObject = new Date(date);
+  return <p>Posted {dateFormat(dateObject, "d LLLL yyyy")}</p>;
 }
