@@ -16,8 +16,8 @@ export type Job = {
     value: string;
   };
   applyUrl: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export async function getJobs() {
@@ -25,6 +25,7 @@ export async function getJobs() {
   return await response.data;
 }
 
-// export function getJob(jobId: string) {
-//   return job;
-// }
+export async function getJob(jobId: string) {
+  const response = await axiosInstance.get(`/jobs/${jobId}`);
+  return await response.data;
+}

@@ -1,13 +1,20 @@
-import { Link, useParams } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from "@remix-run/node";
 
 import { DateFormatted } from "~/components/date-formatted";
 import { JobSalaryRange } from "~/components/job-salary-range";
-import { getJob } from "~/data/job-posts";
+import { getJob } from "~/data/jobs";
 import { parseHtml } from "~/libs/html-react-parser";
+import type { Job } from "~/data/jobs";
+
+export const loader: LoaderFunction = async ({ params }) => {
+  const job: Job = await getJob(params.jobId as string);
+  return json(job);
+};
 
 export default function JobId() {
-  const params = useParams();
-  const job = getJob(params.jobId as string);
+  const job = useLoaderData<Job>();
 
   if (!job) {
     return (
@@ -46,7 +53,9 @@ export default function JobId() {
           </section>
 
           <section className="my-5">
-            <div>{parseHtml(job?.jobDescription)}</div>
+            <div>
+              {parseHtml(job?.jobDescription || "<p>No description</p>")}
+            </div>
           </section>
 
           <section>
