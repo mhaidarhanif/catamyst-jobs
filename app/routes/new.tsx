@@ -1,6 +1,8 @@
-import { ActionArgs, redirect } from "@remix-run/node";
+import type { ActionArgs } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { useCatch } from "@remix-run/react";
-import { createJob, JobFormData } from "~/data/jobs";
+import type { JobFormData } from "~/data/jobs";
+import { createJob } from "~/data/jobs";
 
 export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
